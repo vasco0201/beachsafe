@@ -115,7 +115,7 @@ def retrieve_process(beachcam="https://video-auth1.iol.pt/beachcam/conceicao/pla
 
                         mask = masked_image(median_cv,clf)
                         #plot_img_mask(img,mask)
-                        occupation = calculate_oc(mask,yhat[0]['rois'])
+                        occupation = calculate_occupation(mask,yhat[0]['rois'])
                         print("Occupation:", occupation)
                         #################################################################################
                         # POR AQUI FUNÇÃO PARA RETORNAR NUMERO DE PESSOAS E FAZER value.append(pessoas) #

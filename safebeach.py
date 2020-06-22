@@ -72,7 +72,7 @@ if __name__ == '__main__':
 					f.close()
 				print("Updating file...")
 				if os.path.isdir('/content/drive'):
-					copyfile('data.txt', '/content/drive/data.txt')
+					copyfile('data.txt', '/content/drive/My\ Drive/data.txt')
 
 				# 	if i == 1 and flag:
 				# 		send_data(data, True)
