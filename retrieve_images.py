@@ -11,13 +11,12 @@ from os import listdir
 from shutil import copyfile
 
 
-def retrieve_process(beachcam="https://video-auth1.iol.pt/beachcam/conceicao/playlist.m3u8"):
+def retrieve_process(beachcam="https://video-auth1.iol.pt/beachcam/conceicao/playlist.m3u8",cfg):
 
     f = open("clf.pkl", "rb")
     clf = pickle.load(f)
     f.close()
 
-    cfg = PredictionConfig()
     # define the model
     print("Building model...")
     model = MaskRCNN(mode='inference', model_dir='./', config=cfg)
@@ -126,7 +125,7 @@ def retrieve_process(beachcam="https://video-auth1.iol.pt/beachcam/conceicao/pla
                         values.append(len(yhat[0]['rois']))
                         occupations.append(occupation)
 
-                        del img_float32,img,img_cv,scaled_image,sample,yhat,mask,occupation,median_cv,median_float32,center,median
+                        del img_float32,img,scaled_image,sample,yhat,mask,occupation,median_cv,median_float32,center,median
                         gc.collect()
                         ind3 = ind3 + 1
 

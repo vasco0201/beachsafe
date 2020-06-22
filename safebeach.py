@@ -8,9 +8,13 @@ import json
 from pathlib import Path
 from retrieve_images import *
 from os import listdir
+from safebeach_detector import *
+
 # from add_data import *
 WAIT_TIME_SECONDS = 15
 flag = True
+
+cfg = PredictionConfig()
 
 beachcams = [("Carcavelos", "https://video-auth1.iol.pt/beachcam/carcavelos/playlist.m3u8"),
 			 ("Conceição Duquesa",
@@ -42,7 +46,7 @@ if __name__ == '__main__':
 					# except:
 					# 	pass
 					n_ppl, occupation = retrieve_process(
-						beachcam=beachcam[1])
+						beachcam=beachcam[1],cfg)
 					data = {}
 					# print(data)
 					data = {
