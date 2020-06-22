@@ -23,7 +23,10 @@ def retrieve_process(beachcam="https://video-auth1.iol.pt/beachcam/conceicao/pla
     model = MaskRCNN(mode='inference', model_dir='./', config=cfg)
     # load model weights
     print("Loading weights...")
-    model.load_weights("mask_rcnn_beachsafe_cfg_0010.h5", by_name=True)
+    if os.path.isdir('/content/'):
+        model.load_weights("/content/mask_rcnn_beachsafe_cfg_0012.h5", by_name=True)
+    else:
+        model.load_weights("mask_rcnn_beachsafe_cfg_0012.h5", by_name=True)
 
     n_wanted = 10
     values = []

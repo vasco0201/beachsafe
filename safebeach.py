@@ -29,6 +29,7 @@ ticker = threading.Event()
 if __name__ == '__main__':
 		try:
 			while not ticker.wait(WAIT_TIME_SECONDS):
+				print("Retrieving images...")
 				for i in range(1):
 					ref = i
 					beachcam = beachcams[i]
