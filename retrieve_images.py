@@ -11,7 +11,7 @@ from os import listdir
 from shutil import copyfile
 
 
-def retrieve_process(beachcam="https://video-auth1.iol.pt/beachcam/conceicao/playlist.m3u8",cfg):
+def retrieve_process(beachcam="https://video-auth1.iol.pt/beachcam/conceicao/playlist.m3u8",config=PredictionConfig()):
 
     f = open("clf.pkl", "rb")
     clf = pickle.load(f)

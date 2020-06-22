@@ -46,7 +46,7 @@ if __name__ == '__main__':
 					# except:
 					# 	pass
 					n_ppl, occupation = retrieve_process(
-						beachcam=beachcam[1],cfg)
+						beachcam=beachcam[1],config=cfg)
 					data = {}
 					# print(data)
 					data = {
