@@ -7,9 +7,9 @@ import numpy as np
 import json
 from pathlib import Path
 from retrieve_images import *
+from os import listdir
 # from add_data import *
-
-WAIT_TIME_SECONDS = 900
+WAIT_TIME_SECONDS = 15
 flag = True
 
 beachcams = [("Carcavelos", "https://video-auth1.iol.pt/beachcam/carcavelos/playlist.m3u8"),
@@ -29,7 +29,7 @@ ticker = threading.Event()
 if __name__ == '__main__':
 		try:
 			while not ticker.wait(WAIT_TIME_SECONDS):
-				for i in range(len(beachcams)):
+				for i in range(1):
 					ref = i
 					beachcam = beachcams[i]
 					f = open("data.txt", "a")
@@ -65,6 +65,10 @@ if __name__ == '__main__':
 					print(data, file = f)
 
 					f.close()
+
+				if os.path.isdir('/content/drive'):
+					copyfile('data.txt', '/content/drive/data.txt')
+
 				# 	if i == 1 and flag:
 				# 		send_data(data, True)
 				# 	else:
