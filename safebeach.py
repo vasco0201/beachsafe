@@ -11,7 +11,7 @@ from os import listdir
 from safebeach_detector import *
 
 # from add_data import *
-WAIT_TIME_SECONDS = 15
+WAIT_TIME_SECONDS = 900
 flag = True
 
 cfg = PredictionConfig()
@@ -34,7 +34,7 @@ if __name__ == '__main__':
 		try:
 			while not ticker.wait(WAIT_TIME_SECONDS):
 				print("Retrieving images...")
-				for i in range(1):
+				for i in range(len(beachcams)):
 					ref = i
 					beachcam = beachcams[i]
 					f = open("data.txt", "a")
