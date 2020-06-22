@@ -66,7 +66,7 @@ if __name__ == '__main__':
 					print(data, file = f)
 
 					f.close()
-
+				print("Updating file...")
 				if os.path.isdir('/content/drive'):
 					copyfile('data.txt', '/content/drive/data.txt')
 

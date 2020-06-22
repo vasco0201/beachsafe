@@ -114,7 +114,7 @@ def retrieve_process(beachcam="https://video-auth1.iol.pt/beachcam/conceicao/pla
 
                         print("Persons found: ",len(yhat[0]['rois']))
 
-                        mask = masked_image(img_cv,clf)
+                        mask = masked_image(median_cv,clf)
                         #plot_img_mask(img,mask)
                         occupation = calculate_oc(mask,yhat[0]['rois'])
                         print("Occupation:", occupation)
