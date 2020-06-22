@@ -116,6 +116,7 @@ def calculate_oc(mask,bboxes):
 
 def calculate_occupation(mask,bboxes):
   areal_px = cv2.countNonZero(mask)
+
   person_pxls = 0
   for box in bboxes:
     y1, x1, y2, x2 = box
@@ -125,7 +126,10 @@ def calculate_occupation(mask,bboxes):
   #areal_px= cv.countNonZero(mask)
   #print("person pxls: ",person_pxls)
   #print("Occupation:", (person_pxls/areal_px)*100)
-  return (person_pxls/areal_px)*100
+  if areal_px==0:
+    return -1
+  else:
+    return (person_pxls/areal_px)*100
 
 
 
