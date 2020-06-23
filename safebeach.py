@@ -11,7 +11,7 @@ from os import listdir
 from safebeach_detector import *
 
 # from add_data import *
-WAIT_TIME_SECONDS = 900
+WAIT_TIME_SECONDS = 5
 flag = True
 
 cfg = PredictionConfig()
