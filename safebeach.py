@@ -14,14 +14,13 @@ from safebeach_detector import *
 WAIT_TIME_SECONDS = 5
 flag = True
 
-cfg = PredictionConfig()
+
 
 beachcams = [("Carcavelos", "https://video-auth1.iol.pt/beachcam/carcavelos/playlist.m3u8"),
 			 ("Conceição Duquesa",
 			  "https://video-auth1.iol.pt/beachcam/conceicao/playlist.m3u8"),
 			 ("Baía de Cascais",
 			  "https://video-auth1.iol.pt/beachcam/praiadospescadores/playlist.m3u8"),
-			 # 200 Framse max treshhold
 			 ("S. João do Estoril",
 			  "https://video-auth1.iol.pt/beachcam/saojoaodoestoril/playlist.m3u8"),
 			 ("S. Pedro do Estoril",
@@ -36,22 +35,23 @@ if __name__ == '__main__':
 				print("Retrieving images...")
 				for i in range(len(beachcams)):
 					ref = i
-					beachcam = beachcams[i]
+					curr = beachcams[i]
 					f = open("data.txt", "a")
-					print("Reference: ", ref, "\nBeach: ", beachcam[0])
-					print(beachcam[1])
+					print("Reference: ", ref, "\nBeach: ", curr[0])
 					now = datetime.datetime.now().replace(microsecond=0).isoformat()
 					# try:
 					# 	os.mkdir(beachcam[0])
 					# except:
 					# 	pass
+					print(curr[1])
 					n_ppl, occupation = retrieve_process(
-						beachcam=beachcams[i][1],cfg=cfg)
+						beachcam=curr[1])
+					print(n_ppl, occupation)
 					data = {}
 					# print(data)
 					data = {
 						"current": {
-							"name": beachcam[0],
+							"name": curr[0],
 							"timestamp":now,
 							},
 						"people": {
