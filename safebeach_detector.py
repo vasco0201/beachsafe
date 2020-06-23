@@ -127,7 +127,7 @@ def calculate_occupation(mask,bboxes):
   #print("person pxls: ",person_pxls)
   #print("Occupation:", (person_pxls/areal_px)*100)
   if areal_px==0:
-    return -1
+    return 0
   else:
     return (person_pxls/areal_px)*100
 
