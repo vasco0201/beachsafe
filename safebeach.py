@@ -39,14 +39,13 @@ if __name__ == '__main__':
 					beachcam = beachcams[i]
 					f = open("data.txt", "a")
 					print("Reference: ", ref, "\nBeach: ", beachcam[0])
-
 					now = datetime.datetime.now().replace(microsecond=0).isoformat()
 					# try:
 					# 	os.mkdir(beachcam[0])
 					# except:
 					# 	pass
 					n_ppl, occupation = retrieve_process(
-						beachcam=beachcam[1],cfg=cfg)
+						beachcam=beachcam[1])
 					data = {}
 					# print(data)
 					data = {
